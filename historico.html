@@ -12,7 +12,7 @@
         .container {
             margin-top: 20px;
         }
-        .card {
+        h1 {
             margin-bottom: 20px;
         }
     </style>
@@ -22,55 +22,89 @@
 <div class="container">
     <h1 class="text-center">Histórico dos Alunos</h1>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Nome do Aluno 1</h5>
-                </div>
-                <div class="card-body">
-                    <p><strong>Notas:</strong></p>
-                    <ul>
-                        <li>Matemática: 8.5</li>
-                        <li>Português: 9.0</li>
-                        <li>Ciências: 7.5</li>
-                    </ul>
-                </div>
-            </div>
+    <form id="studentForm">
+        <div class="mb-3">
+            <label for="studentName" class="form-label">Nome do Aluno</label>
+            <input type="text" class="form-control" id="studentName" required>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Nome do Aluno 2</h5>
-                </div>
-                <div class="card-body">
-                    <p><strong>Notas:</strong></p>
-                    <ul>
-                        <li>Matemática: 9.5</li>
-                        <li>Português: 8.0</li>
-                        <li>Ciências: 7.0</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="mb-3">
+            <label for="studentGrade" class="form-label">Nota</label>
+            <input type="number" class="form-control" id="studentGrade" required step="0.1" min="0" max="10">
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Nome do Aluno 3</h5>
-                </div>
-                <div class="card-body">
-                    <p><strong>Notas:</strong></p>
-                    <ul>
-                        <li>Matemática: 6.5</li>
-                        <li>Português: 7.0</li>
-                        <li>Ciências: 9.0</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="mb-3">
+            <label for="studentAttendance" class="form-label">Frequência (%)</label>
+            <input type="number" class="form-control" id="studentAttendance" required min="0" max="100">
         </div>
-    </div>
+        <button type="submit" class="btn btn-primary">Adicionar Aluno</button>
+    </form>
+
+    <table class="table table-striped mt-4" id="studentsTable">
+        <thead>
+            <tr>
+                <th>Nome do Aluno</th>
+                <th>Nota</th>
+                <th>Frequência (%)</th>
+                <th>Média Final</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>João Silva</td>
+                <td>8.5</td>
+                <td>90</td>
+                <td>8.5</td>
+                <td><button class="btn btn-danger btn-sm" onclick="removeStudent(this)">Remover</button></td>
+            </tr>
+            <tr>
+                <td>Maria Oliveira</td>
+                <td>9.0</td>
+                <td>95</td>
+                <td>9.0</td>
+                <td><button class="btn btn-danger btn-sm" onclick="removeStudent(this)">Remover</button></td>
+            </tr>
+            <tr>
+                <td>Carlos Pereira</td>
+                <td>7.5</td>
+                <td>85</td>
+                <td>7.5</td>
+                <td><button class="btn btn-danger btn-sm" onclick="removeStudent(this)">Remover</button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Função para adicionar aluno
+    document.getElementById('studentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('studentName').value;
+        const grade = parseFloat(document.getElementById('studentGrade').value).toFixed(1);
+        const attendance = parseInt(document.getElementById('studentAttendance').value);
+        const average = grade; // A média é igual à nota aqui; você pode modificar isso se necessário
+
+        const table = document.getElementById('studentsTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        newRow.innerHTML = `
+            <td>${name}</td>
+            <td>${grade}</td>
+            <td>${attendance}</td>
+            <td>${average}</td>
+            <td><button class="btn btn-danger btn-sm" onclick="removeStudent(this)">Remover</button></td>
+        `;
+
+        // Limpar campos do formulário
+        document.getElementById('studentForm').reset();
+    });
+
+    // Função para remover aluno
+    function removeStudent(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
 </body>
 </html>
