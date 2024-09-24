@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Solicitação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Escola XYZ</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Formulário de Solicitação</h2>
+        <form action="#" method="post">
+            <label for="nome">Nome do Aluno:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="matricula">Número da Matrícula:</label>
+            <input type="text" id="matricula" name="matricula" required>
+
+            <label for="tipo-solicitacao">Tipo de Solicitação:</label>
+            <select id="tipo-solicitacao" name="tipo-solicitacao" required>
+                <option value="">Selecione</option>
+                <option value="cancelamento">Cancelamento de Matrícula</option>
+                <option value="trancamento">Trancamento de Curso</option>
+                <option value="atestado">Atestado Médico</option>
+            </select>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+            <button type="submit">Enviar Solicitação</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Escola XYZ. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
