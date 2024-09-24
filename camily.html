@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Atendimentos - SENAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .observacoes {
+            height: 100px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .row div {
+            width: 48%;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Atendimento - SENAI</h1>
+        <form>
+            <label for="nome-aluno">Nome do Aluno:</label>
+            <input type="text" id="nome-aluno" name="nome-aluno" required>
+
+            <label for="matricula-aluno">Matrícula do Aluno:</label>
+            <input type="text" id="matricula-aluno" name="matricula-aluno" required>
+
+            <label for="motivo-consulta">Motivo da Consulta:</label>
+            <select id="motivo-consulta" name="motivo-consulta" required>
+                <option value="" disabled selected>Selecione o motivo</option>
+                <option value="Dificuldade Acadêmica">Dificuldade Acadêmica</option>
+                <option value="Problemas Pessoais">Problemas Pessoais</option>
+                <option value="Orientação Profissional">Orientação Profissional</option>
+                <option value="Outros">Outros</option>
+            </select>
+
+            <div class="row">
+                <div>
+                    <label for="data-atendimento">Data do Atendimento:</label>
+                    <input type="date" id="data-atendimento" name="data-atendimento" required>
+                </div>
+                <div>
+                    <label for="hora-atendimento">Hora do Atendimento:</label>
+                    <input type="time" id="hora-atendimento" name="hora-atendimento" required>
+                </div>
+            </div>
+
+            <label for="observacoes">Observações:</label>
+            <textarea id="observacoes" name="observacoes" class="observacoes" placeholder="Insira observações adicionais aqui..."></textarea>
+
+            <button type="submit">Registrar Atendimento</button>
+        </form>
+        <div class="footer">
+            &copy; 2024 SENAI. Todos os direitos reservados.
+        </div>
+    </div>
+</body>
+</html>
